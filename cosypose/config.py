@@ -12,7 +12,9 @@ hostname = socket.gethostname()
 username = getpass.getuser()
 
 PROJECT_ROOT = Path(cosypose.__file__).parent.parent
-PROJECT_DIR = PROJECT_ROOT
+#PROJECT_DIR = PROJECT_ROOT
+PROJECT_DIR = Path('/pfcalcul/work/tlasguigne/cosypose')
+
 DATA_DIR = PROJECT_DIR / 'data'
 LOCAL_DATA_DIR = PROJECT_DIR / 'local_data'
 TEST_DATA_DIR = LOCAL_DATA_DIR

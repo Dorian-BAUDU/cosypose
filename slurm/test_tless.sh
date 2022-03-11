@@ -3,7 +3,7 @@
 
 echo "Running T-LESS test to reproduce Y. Labbé results on CosyPose"
 
-EXEC="python -m cosypose.scripts.run_cosypose_eval --config tless-siso"
+EXEC="python -m cosypose.scripts.run_cosypose_eval --config tless-siso --debug"
 GPU_REQUIRED=true
 #gpu=rtx_a6000
 
@@ -17,6 +17,7 @@ sbatch ${sbatchopt} << eof
 #!/bin/bash
 #SBATCH --job-name=test_tless
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=40
 #SBATCH --account=dept_rob
 #SBATCH --partition=robgpu
 #SBATCH --gres=gpu:${gpu}
@@ -25,6 +26,8 @@ sbatch ${sbatchopt} << eof
 
 #SBATCH --output=stdout.txt
 #SBATCH --error=stderr.txt
+
+echo ${gpu}
 
 . /pfcalcul/tools/sbatchHelpers2.sh
 
